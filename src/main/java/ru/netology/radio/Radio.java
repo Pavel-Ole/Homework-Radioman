@@ -7,6 +7,7 @@ public class Radio {
 
 
     public int getCurrentRadioStation() {
+
         return currentRadioStation;
     }
 
@@ -55,28 +56,26 @@ public class Radio {
     }
 
     // Переключение радиостанций кнопкой "слудующая":
-    public void nextRadioStation() {
+    public int nextRadioStation() {
         if (currentRadioStation < 9) {
-            currentRadioStation = currentRadioStation + 1;
-            return;
-        }
-        if (currentRadioStation == 9) {
-            currentRadioStation = 0;
+            return currentRadioStation = currentRadioStation + 1;
+
+        } else {
+            return currentRadioStation = 0;
+
         }
 
     }
 
     // Переключение радиостанций кнопкой "предыдущая":
-    public void prevRadioStation() {
+    public int prevRadioStation() {
         if (currentRadioStation > 0) {
-            currentRadioStation = currentRadioStation - 1;
-            return;
-        }
-        if (currentRadioStation == 0) {
-            currentRadioStation = 9;
+            return currentRadioStation = currentRadioStation - 1;
+
+        } else {
+            return currentRadioStation = 9;
         }
 
     }
-
 
 }
