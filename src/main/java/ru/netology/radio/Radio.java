@@ -5,6 +5,17 @@ public class Radio {
     private int currentRadioStation;
     private int soundVolume;
 
+    private int amountRadioStation;
+
+    public Radio() {
+
+    }
+
+    public Radio(int amountRadioStation) {
+        this.amountRadioStation = amountRadioStation;
+
+    }
+
 
     public int getCurrentRadioStation() {
 
@@ -78,4 +89,37 @@ public class Radio {
 
     }
 
+    // Ограничения радиостанций по минимуму и максимуму:
+    public void setCurrentRadioStationDesiredAmount(int newCurrentRadioStation) {
+        if (newCurrentRadioStation < 0) {
+            return;
+        }
+        if (newCurrentRadioStation > amountRadioStation - 1) {
+            return;
+        }
+        currentRadioStation = newCurrentRadioStation;
+    }
+
+    // Переключение радиостанций кнопкой "слудующая":
+    public void nextRadioStationDesiredAmount() {
+        if (currentRadioStation < amountRadioStation - 1) {
+            currentRadioStation = currentRadioStation + 1;
+
+        } else {
+            currentRadioStation = 0;
+
+        }
+
+    }
+
+    // Переключение радиостанций кнопкой "предыдущая":
+    public void prevRadioStationDesiredAmount() {
+        if (currentRadioStation > 0) {
+            currentRadioStation = currentRadioStation - 1;
+
+        } else {
+            currentRadioStation = amountRadioStation - 1;
+        }
+
+    }
 }
